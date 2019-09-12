@@ -19,7 +19,26 @@ const bookSchema = new Schema({
   })
 
 
-  const Book = mongoose.model("Book", bookSchema)
+
+  let b1 = new Book({
+    title: "Name of the Wind",
+    author: "Patrick Rothfuss",
+    reviews: []
+})
+
+let c1 = new Critic({
+    name: "William Jeffery",
+    reviews: []
+})
+
+let r1 = new Review({
+    book: b1,
+    critic: c1,
+    reviewText: "Excellent Book"
+})
+
+
+const Book = mongoose.model("Book", bookSchema)
 const Review = mongoose.model("Review", reviewSchema)
 const Critic = mongoose.model("Critic", criticSchema)
 
