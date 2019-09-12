@@ -73,3 +73,7 @@ let r1 = new Review({
 // .exec(function(err, review){
 // console.log(review)
 // })
+
+Review.find({}, function (err, reviews) {
+    console.log(reviews)
+})
