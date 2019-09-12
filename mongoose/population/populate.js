@@ -1,5 +1,14 @@
+
+var bodyParser = require('body-parser')
 const mongoose = require( 'mongoose' )
 const Schema = mongoose.Schema
+
+mongoose.connect("mongodb://localhost/Book")
+
+
+
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 
 const bookSchema = new Schema({ 
     title: String,
@@ -20,6 +29,13 @@ const bookSchema = new Schema({
 
 
 
+
+  const Book = mongoose.model("Book", bookSchema)
+  const Review = mongoose.model("Review", reviewSchema)
+  const Critic = mongoose.model("Critic", criticSchema)
+  
+
+
   let b1 = new Book({
     title: "Name of the Wind",
     author: "Patrick Rothfuss",
@@ -38,19 +54,13 @@ let r1 = new Review({
 })
 
 
-const Book = mongoose.model("Book", bookSchema)
-const Review = mongoose.model("Review", reviewSchema)
-const Critic = mongoose.model("Critic", criticSchema)
+// b1.reviews.push(r1)
+// c1.reviews.push(r1)
 
-b1.reviews.push(r1)
-c1.reviews.push(r1)
-
-b1.save()
-c1.save()
-r1.save()
+// b1.save()
+// c1.save()
+// r1.save()
 
 Book.find({}, function(err, books){
     console.log(books)
 })
-
-module.exports = Expense
