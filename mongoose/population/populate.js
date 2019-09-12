@@ -17,3 +17,7 @@ const bookSchema = new Schema({
     name: String,
     reviews: [reviewSchema],
   })
+
+
+
+module.exports = Expense
