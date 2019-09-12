@@ -1,5 +1,5 @@
 
-var bodyParser = require('body-parser')
+// var bodyParser = require('body-parser')
 const mongoose = require( 'mongoose' )
 const Schema = mongoose.Schema
 
@@ -7,8 +7,8 @@ mongoose.connect("mongodb://localhost/Book")
 
 
 
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json())
+// app.use(bodyParser.urlencoded({ extended: false }))
+// app.use(bodyParser.json())
 
 const bookSchema = new Schema({ 
     title: String,
@@ -61,6 +61,13 @@ let r1 = new Review({
 // c1.save()
 // r1.save()
 
-Book.find({}, function(err, books){
-    console.log(books)
+// Book.find()
+//     .exec(function(err, books){
+//     console.log(books)
+//     })
+
+
+Review.find().populate("books", "critic")
+.exec(function(err, review){
+console.log(review)
 })
