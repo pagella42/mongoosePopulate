@@ -20,4 +20,10 @@ const bookSchema = new Schema({
 
 
 
+
+  const Book = mongoose.model("Book", bookSchema)
+const Review = mongoose.model("Review", reviewSchema)
+const Critic = mongoose.model("Critic", criticSchema)
+
+
 module.exports = Expense
