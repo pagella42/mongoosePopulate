@@ -67,7 +67,7 @@ let r1 = new Review({
 //     })
 
 
-// Review.find().populate("books", "critic")
-// .exec(function(err, review){
-// console.log(review)
-// })
+Review.find().populate("books", "critic")
+.exec(function(err, review){
+console.log(review)
+})
