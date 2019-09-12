@@ -74,6 +74,15 @@ let r1 = new Review({
 // console.log(review)
 // })
 
-Review.find({}, function (err, reviews) {
-    console.log(reviews)
-})
+// Review.find({})
+//     .populate('book critic')
+//     .exec(function (err, reviews) {
+//         console.log(reviews)
+//     })
+
+    // Critic.findOne({}, function(err, critic) {
+    //     //now we have a single critic
+    //     critic.populate('reviews', function() {
+    //       console.log(critic.reviews)
+    //     })
+    //   })
